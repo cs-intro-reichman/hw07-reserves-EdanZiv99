@@ -3,8 +3,8 @@ public class SpellChecker {
 
 
 	public static void main(String[] args) {
-		String word = "lisense";
-		int threshold = 2;
+		String word = "coooool";
+		int threshold = 3;
 		String[] dictionary = readDictionary("dictionary.txt");
 		String correction = spellChecker(word, threshold, dictionary);
 		System.out.println(correction);
@@ -53,7 +53,7 @@ public class SpellChecker {
 	public static String spellChecker(String word, int threshold, String[] dictionary) { 
 		int min = 0; 
 		for (int i = 1; i < dictionary.length; i++) {
-			if (levenshtein(word, dictionary[i]) <= levenshtein(word, dictionary[min])) {
+			if (levenshtein(word, dictionary[i]) < levenshtein(word, dictionary[min])) {
 				min = i; 
 			}	
 		}
